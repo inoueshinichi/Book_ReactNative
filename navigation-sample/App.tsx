@@ -103,14 +103,14 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* スタック形式画面遷移 */}
-      {/* <Stack.Navigator>
+      <Stack.Navigator>
         <Stack.Screen 
           name="Home" 
           component={HomeScreen} 
           options={{ title: 'ホーム' }}
         />
         <Stack.Screen name="Detail" component={DetailScreen} />
-      </Stack.Navigator> */}
+      </Stack.Navigator>
 
       {/* タブ形式画面遷移 */}
       {/* <Tab.Navigator>
@@ -119,10 +119,10 @@ export default function App() {
       </Tab.Navigator> */}
 
       {/* ドロワー形式画面遷移 */}
-      <Drawer.Navigator>
+      {/* <Drawer.Navigator>
         <Drawer.Screen name="Drawer1" component={Drawer1Screen} />
         <Drawer.Screen name="Drawer2" component={Drawer2Screen} />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
     </NavigationContainer>
   );
 }
