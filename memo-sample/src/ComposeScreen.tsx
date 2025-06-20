@@ -67,14 +67,21 @@ import {
     useTheme,
 } from 'react-native-paper'
 
+import { save } from './store'
+
 
 export const ComposeScreen: React.FC = () => {
     const theme = useTheme()
+    const nav = useNavigation()
 
     const [text, setText] = useState<string>('')
 
-    const onPressSave = () => {
-        // TODO 保存処理
+    // const onPressSave = () => {
+    //     // TODO 保存処理
+    // }
+    const onPressSave = async () => {
+        await save(text, Date.now())
+        nav.goBack()
     }
 
     const container: StyleProp<ViewStyle> = {

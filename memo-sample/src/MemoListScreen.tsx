@@ -47,16 +47,29 @@ import {
 import * as fns from 'date-fns'
 
 
-const memos = [
-    {
-        text: 'メモテスト',
-        createdAt: new Date().getTime()
-    }
-]
+// const memos = [
+//     {
+//         text: 'メモテスト',
+//         createdAt: new Date().getTime()
+//     }
+// ]
+
+import { loadAll } from './store'
 
 export const MemoListScreen: React.FC = () => {
     const theme = useTheme()
     const nav = useNavigation()
+    const [memos, setMemos] = React.useState<string[]>([])
+
+    React.useEffect(() => {
+        const initialize = async () => {
+            const newMemos = await loadAll()
+            setMemos(newMemos)
+        }
+        const unsubscribe = nav.addListener('focus', initialize)
+        return unsubscribe
+    }, [nav])
+
 
     const onAddMemo = () => {
         nav.navigate("Compose")
